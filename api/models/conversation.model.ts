@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 
-interface IConversation {
+export interface IConversation {
   id: string;
   sellerId: string;
   buyerId: string;
@@ -43,7 +43,9 @@ const conversationSchema = new Schema<IConversation>(
   }
 );
 
-export default mongoose.model<IConversation>(
+const Conversation: Model<IConversation> = mongoose.model<IConversation>(
   "Conversation",
   conversationSchema
 );
+
+export default Conversation;

@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 
-interface IReview {
+export interface IReview {
   gigId: string;
   userId: string;
   star: number;
@@ -33,4 +33,6 @@ const reviewSchema = new Schema<IReview>(
   }
 );
 
-export default mongoose.model<IReview>("Review", reviewSchema);
+const Review: Model<IReview> = mongoose.model<IReview>("Review", reviewSchema);
+
+export default Review;

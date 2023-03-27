@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 
-interface IOrder {
+export interface IOrder {
   gigId: string;
   img: string;
   title: string;
@@ -52,4 +52,6 @@ const orderSchema = new Schema<IOrder>(
   }
 );
 
-export default mongoose.model<IOrder>("Order", orderSchema);
+const Order: Model<IOrder> = mongoose.model<IOrder>("Order", orderSchema);
+
+export default Order;

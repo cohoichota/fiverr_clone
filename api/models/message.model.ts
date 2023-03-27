@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 
-interface IMessage {
+export interface IMessage {
   conversationId: string;
   userId: string;
   desc: string;
@@ -27,4 +27,9 @@ const messageSchema = new Schema<IMessage>(
   }
 );
 
-export default mongoose.model<IMessage>("Message", messageSchema);
+const Message: Model<IMessage> = mongoose.model<IMessage>(
+  "Message",
+  messageSchema
+);
+
+export default Message;

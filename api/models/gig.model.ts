@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Model } from "mongoose";
 const { Schema } = mongoose;
 
-interface IGig {
+export interface IGig {
   userId: string;
   title: string;
   desc: string;
@@ -87,4 +87,6 @@ const gigSchema = new Schema<IGig>(
   }
 );
 
-export default mongoose.model<IGig>("Gig", gigSchema);
+const Gig: Model<IGig> = mongoose.model<IGig>("Gig", gigSchema);
+
+export default Gig;
